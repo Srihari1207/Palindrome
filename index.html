@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PALINDROME CHECKER</title>
+    <style>
+        body {
+            background-image: url(https://img.freepik.com/free-photo/psychedelic-paper-shapes-with-copy-space_23-2149378246.jpg?w=1380&t=st=1696424115~exp=1696424715~hmac=0a792433f3fa185dc3a664d0dc521146d40376768fbe13efb8bf06325cafe974);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 70px;
+        }
+
+        #input {
+            width: 100%;
+            max-width: 400px;
+            height: 3em;
+            padding: 10px;
+            font-size: 1.5em;
+            border-radius: 40px;
+            border: none;
+            box-shadow: 8px 5px;
+            outline: none;
+        }
+
+        button {
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            height: 2em;
+            padding: 10px;
+            font-size: 1.5em;
+            background-color: turquoise;
+            border: none;
+            margin-top: 50px;
+        }
+
+        button:hover {
+            background-color: black;
+            color: azure;
+        }
+
+        #result {
+            font-size: 3em;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            #input {
+                max-width: 100%;
+                font-size: 1.2em;
+            }
+
+            button {
+                max-width: 100%;
+                font-size: 1.2em;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        PALINDROME CHECK
+    </h1>
+    <div class="container">
+        <input type="text" id="input" placeholder="Enter Anything">
+        <button onclick="palindromeCheck()">CHECK</button>
+        <h1 id="result"></h1>
+    </div>
+    <script>
+        function palindrome(str) {
+            str = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+            return str === str.split('').reverse().join('');
+        }
+
+        function palindromeCheck() {
+            let input = document.getElementById('input');
+            let output = document.getElementById('result');
+            let inputValue = input.value;
+
+            if (palindrome(inputValue)) {
+                output.textContent = `Given "${inputValue}" Is Palindrome.`;
+            } else {
+                output.textContent = `Given "${inputValue}" Is not Palindrome.`;
+            }
+        }
+    </script>
+</body>
+</html>
